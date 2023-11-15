@@ -11,6 +11,10 @@
 		CE1392342B03F5FB008671B5 /* FileCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1392332B03F5FB008671B5 /* FileCache.swift */; };
 		CE1392372B03FB3B008671B5 /* TodoItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1392362B03FB3B008671B5 /* TodoItems.swift */; };
 		CE1392392B04068E008671B5 /* FileCacheErrors Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1392382B04068E008671B5 /* FileCacheErrors Enum.swift */; };
+		CE32533D2B054D2700FB5BB2 /* ViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE32533C2B054D2700FB5BB2 /* ViewController+UICollectionViewDataSource.swift */; };
+		CE32533F2B054E8C00FB5BB2 /* ViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE32533E2B054E8C00FB5BB2 /* ViewController+UICollectionViewDelegate.swift */; };
+		CE3253422B054F3C00FB5BB2 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3253412B054F3C00FB5BB2 /* CustomCell.swift */; };
+		CE3253442B05528100FB5BB2 /* ViewController+UICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3253432B05528100FB5BB2 /* ViewController+UICollectionViewDelegateFlowLayout.swift */; };
 		CE7966BA2B00CBBA00534BE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7966B92B00CBBA00534BE5 /* AppDelegate.swift */; };
 		CE7966BC2B00CBBA00534BE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7966BB2B00CBBA00534BE5 /* SceneDelegate.swift */; };
 		CE7966BE2B00CBBA00534BE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7966BD2B00CBBA00534BE5 /* ViewController.swift */; };
@@ -24,6 +28,10 @@
 		CE1392332B03F5FB008671B5 /* FileCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCache.swift; sourceTree = "<group>"; };
 		CE1392362B03FB3B008671B5 /* TodoItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItems.swift; sourceTree = "<group>"; };
 		CE1392382B04068E008671B5 /* FileCacheErrors Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileCacheErrors Enum.swift"; sourceTree = "<group>"; };
+		CE32533C2B054D2700FB5BB2 /* ViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		CE32533E2B054E8C00FB5BB2 /* ViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		CE3253412B054F3C00FB5BB2 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		CE3253432B05528100FB5BB2 /* ViewController+UICollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UICollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
 		CE7966B62B00CBBA00534BE5 /* project todolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project todolist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7966B92B00CBBA00534BE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7966BB2B00CBBA00534BE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CE1392352B03F60C008671B5 /* Model */ = {
+		CE3253392B054C3500FB5BB2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CE32533A2B054C5600FB5BB2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				CE1392332B03F5FB008671B5 /* FileCache.swift */,
@@ -54,18 +69,39 @@
 				CE1392362B03FB3B008671B5 /* TodoItems.swift */,
 				CE1392382B04068E008671B5 /* FileCacheErrors Enum.swift */,
 			);
-			name = Model;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE32533B2B054C8700FB5BB2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CE7966BD2B00CBBA00534BE5 /* ViewController.swift */,
+				CE32533C2B054D2700FB5BB2 /* ViewController+UICollectionViewDataSource.swift */,
+				CE32533E2B054E8C00FB5BB2 /* ViewController+UICollectionViewDelegate.swift */,
+				CE3253432B05528100FB5BB2 /* ViewController+UICollectionViewDelegateFlowLayout.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CE3253402B054F1200FB5BB2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE3253412B054F3C00FB5BB2 /* CustomCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CE7966AD2B00CBBA00534BE5 = {
 			isa = PBXGroup;
 			children = (
+				CE3253402B054F1200FB5BB2 /* View */,
+				CE32533B2B054C8700FB5BB2 /* Controller */,
+				CE32533A2B054C5600FB5BB2 /* Model */,
+				CE3253392B054C3500FB5BB2 /* Extensions */,
 				CE7966CA2B00CBBB00534BE5 /* Info.plist */,
 				CE7966C52B00CBBB00534BE5 /* Assets.xcassets */,
-				CE1392352B03F60C008671B5 /* Model */,
 				CE7966B92B00CBBA00534BE5 /* AppDelegate.swift */,
 				CE7966BB2B00CBBA00534BE5 /* SceneDelegate.swift */,
-				CE7966BD2B00CBBA00534BE5 /* ViewController.swift */,
 				CE7966C72B00CBBB00534BE5 /* LaunchScreen.storyboard */,
 				CE7966B72B00CBBA00534BE5 /* Products */,
 			);
@@ -151,11 +187,15 @@
 			files = (
 				CE1392322B03EEE8008671B5 /* TodoItem.swift in Sources */,
 				CE7966BE2B00CBBA00534BE5 /* ViewController.swift in Sources */,
+				CE3253442B05528100FB5BB2 /* ViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
+				CE3253422B054F3C00FB5BB2 /* CustomCell.swift in Sources */,
 				CE7966D32B00E65700534BE5 /* Importance Enum.swift in Sources */,
 				CE1392392B04068E008671B5 /* FileCacheErrors Enum.swift in Sources */,
+				CE32533D2B054D2700FB5BB2 /* ViewController+UICollectionViewDataSource.swift in Sources */,
 				CE7966BA2B00CBBA00534BE5 /* AppDelegate.swift in Sources */,
 				CE1392342B03F5FB008671B5 /* FileCache.swift in Sources */,
 				CE7966BC2B00CBBA00534BE5 /* SceneDelegate.swift in Sources */,
+				CE32533F2B054E8C00FB5BB2 /* ViewController+UICollectionViewDelegate.swift in Sources */,
 				CE1392372B03FB3B008671B5 /* TodoItems.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,8 +340,8 @@
 				INFOPLIST_FILE = "/Users/babezyan/Projects/project todolist/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,9 +349,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "vargunin.project-todolist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -327,8 +370,8 @@
 				INFOPLIST_FILE = "/Users/babezyan/Projects/project todolist/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -336,9 +379,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "vargunin.project-todolist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

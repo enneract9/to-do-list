@@ -10,12 +10,17 @@ import UIKit
 class ViewController: UIViewController {
     
     private let fileCache = FileCache()
+    lazy var todoItemsCount: Int = {
+        fileCache.items.count
+    }()
     
     private lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .blue
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
         return collectionView
     }()
 
@@ -23,6 +28,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         view.addSubview(collectionView)
+        
+        collectionView.register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.reuseID)
         setupConstraints()
     }
 
