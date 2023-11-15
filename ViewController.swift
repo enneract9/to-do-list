@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    private let fileCache = FileCache()
+    
     private lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)

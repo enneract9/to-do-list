@@ -60,13 +60,13 @@
 		CE7966AD2B00CBBA00534BE5 = {
 			isa = PBXGroup;
 			children = (
+				CE7966CA2B00CBBB00534BE5 /* Info.plist */,
+				CE7966C52B00CBBB00534BE5 /* Assets.xcassets */,
 				CE1392352B03F60C008671B5 /* Model */,
 				CE7966B92B00CBBA00534BE5 /* AppDelegate.swift */,
 				CE7966BB2B00CBBA00534BE5 /* SceneDelegate.swift */,
 				CE7966BD2B00CBBA00534BE5 /* ViewController.swift */,
-				CE7966C52B00CBBB00534BE5 /* Assets.xcassets */,
 				CE7966C72B00CBBB00534BE5 /* LaunchScreen.storyboard */,
-				CE7966CA2B00CBBB00534BE5 /* Info.plist */,
 				CE7966B72B00CBBA00534BE5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -297,7 +297,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7367KC6PKX;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "project todolist/Info.plist";
+				INFOPLIST_FILE = "/Users/babezyan/Projects/project todolist/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -324,7 +324,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7367KC6PKX;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "project todolist/Info.plist";
+				INFOPLIST_FILE = "/Users/babezyan/Projects/project todolist/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

@@ -7,41 +7,12 @@
 
 import Foundation
 
-class FileCache {
+final class FileCache {
     private(set) var items: [TodoItem] = []
     private let fileName = "fileCache"
     
     init() {
         loadFromJSONFile()
-    }
-    
-    private func loadFromJSONFile() {
-        do {
-            guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-                throw FileCacheErrors.cannotFindSystemDirectory
-            }
-            let path = directory.appending(path: "\(fileName).json")
-            let data = try Data(contentsOf: path)
-            let decoder = JSONDecoder()
-            items = try decoder.decode(TodoItems.self, from: data).todoItems
-        } catch {
-            debugPrint("Error while loading JSON file: \(String(describing: error))")
-        }
-    }
-    
-    private func saveToJSONFile() {
-        do {
-            guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-                throw FileCacheErrors.cannotFindSystemDirectory
-            }
-            let path = directory.appending(path: "\(fileName).json")
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(TodoItems(todoItems: self.items))
-            try data.write(to: path)
-        } catch {
-            debugPrint("Error while saving to JSON file: \(String(describing: error))")
-        }
-        
     }
     
     func addTodoItem(todoItem: TodoItem) {
@@ -64,7 +35,47 @@ class FileCache {
         }
     }
     
+    func removeAllTodoItems() {
+        items = []
+        saveToJSONFile()
+    }
     
+    // MARK: Working with JSON
+    private func loadFromJSONFile() {
+        do {
+            guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+                throw FileCacheErrors.cannotFindSystemDirectory
+            }
+            let urlToJsonFile = directory.appending(path: "\(fileName).json")
+            
+            guard FileManager.default.fileExists(atPath: urlToJsonFile.path()) else {
+                FileManager.default.createFile(atPath: urlToJsonFile.path(), contents: nil)
+                debugPrint("FileManager cannot find json file at path: \(urlToJsonFile.path()). Empty json file had created.")
+                return
+            }
+            
+            let data = try Data(contentsOf: urlToJsonFile)
+            let decoder = JSONDecoder()
+            items = try decoder.decode(TodoItems.self, from: data).todoItems
+        } catch {
+            debugPrint("Error while loading JSON file: \(String(describing: error)).")
+        }
+    }
+    
+    private func saveToJSONFile() {
+        do {
+            guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+                throw FileCacheErrors.cannotFindSystemDirectory
+            }
+            let path = directory.appending(path: "\(fileName).json")
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(TodoItems(todoItems: self.items))
+            try data.write(to: path)
+        } catch {
+            debugPrint("Error while saving to JSON file: \(String(describing: error)).")
+        }
+        
+    }
 }
 
 // асинхронность!
