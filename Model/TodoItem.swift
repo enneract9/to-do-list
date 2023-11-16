@@ -10,13 +10,13 @@ import Foundation
 struct TodoItem: Codable {
     let id: UUID
     var title: String
-    var description: String
+    var description: String?
     var dateOfCreation: Date
     var deadline: Date?
     var importance: Importance
     var isDone: Bool
     
-    init(title: String, description: String, deadline: Date? = nil, importance: Importance) {
+    init(title: String, description: String? = nil, deadline: Date? = nil, importance: Importance) {
         self.id = UUID()
         self.title = title
         self.description = description

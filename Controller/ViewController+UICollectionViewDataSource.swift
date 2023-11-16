@@ -10,11 +10,11 @@ import UIKit
 
 extension ViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.todoItemsCount
+        2 // self.todoItemsCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.reuseID, for: indexPath) as? CustomCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodoItemCell.reuseID, for: indexPath) as? TodoItemCell else {
             fatalError("Cell dequeueing error!") // Fix it, looks bad?
         }
         

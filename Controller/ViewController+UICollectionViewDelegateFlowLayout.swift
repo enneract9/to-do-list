@@ -10,6 +10,6 @@ import UIKit
 
 extension ViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width - 20, height: 100) // height? 
+        return CGSize(width: view.frame.width - 20, height: 100) // TODO: automatic height?
     }
 }

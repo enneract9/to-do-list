@@ -17,7 +17,9 @@ class ViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .systemBackground
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -29,7 +31,7 @@ class ViewController: UIViewController {
         
         view.addSubview(collectionView)
         
-        collectionView.register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.reuseID)
+        collectionView.register(TodoItemCell.self, forCellWithReuseIdentifier: TodoItemCell.reuseID)
         setupConstraints()
     }
 

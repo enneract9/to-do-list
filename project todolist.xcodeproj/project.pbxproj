@@ -13,7 +13,7 @@
 		CE1392392B04068E008671B5 /* FileCacheErrors Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1392382B04068E008671B5 /* FileCacheErrors Enum.swift */; };
 		CE32533D2B054D2700FB5BB2 /* ViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE32533C2B054D2700FB5BB2 /* ViewController+UICollectionViewDataSource.swift */; };
 		CE32533F2B054E8C00FB5BB2 /* ViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE32533E2B054E8C00FB5BB2 /* ViewController+UICollectionViewDelegate.swift */; };
-		CE3253422B054F3C00FB5BB2 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3253412B054F3C00FB5BB2 /* CustomCell.swift */; };
+		CE3253422B054F3C00FB5BB2 /* TodoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3253412B054F3C00FB5BB2 /* TodoItemCell.swift */; };
 		CE3253442B05528100FB5BB2 /* ViewController+UICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3253432B05528100FB5BB2 /* ViewController+UICollectionViewDelegateFlowLayout.swift */; };
 		CE7966BA2B00CBBA00534BE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7966B92B00CBBA00534BE5 /* AppDelegate.swift */; };
 		CE7966BC2B00CBBA00534BE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7966BB2B00CBBA00534BE5 /* SceneDelegate.swift */; };
@@ -30,7 +30,7 @@
 		CE1392382B04068E008671B5 /* FileCacheErrors Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileCacheErrors Enum.swift"; sourceTree = "<group>"; };
 		CE32533C2B054D2700FB5BB2 /* ViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
 		CE32533E2B054E8C00FB5BB2 /* ViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
-		CE3253412B054F3C00FB5BB2 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		CE3253412B054F3C00FB5BB2 /* TodoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemCell.swift; sourceTree = "<group>"; };
 		CE3253432B05528100FB5BB2 /* ViewController+UICollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UICollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
 		CE7966B62B00CBBA00534BE5 /* project todolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project todolist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7966B92B00CBBA00534BE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 		CE3253402B054F1200FB5BB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CE3253412B054F3C00FB5BB2 /* CustomCell.swift */,
+				CE3253412B054F3C00FB5BB2 /* TodoItemCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -188,7 +188,7 @@
 				CE1392322B03EEE8008671B5 /* TodoItem.swift in Sources */,
 				CE7966BE2B00CBBA00534BE5 /* ViewController.swift in Sources */,
 				CE3253442B05528100FB5BB2 /* ViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
-				CE3253422B054F3C00FB5BB2 /* CustomCell.swift in Sources */,
+				CE3253422B054F3C00FB5BB2 /* TodoItemCell.swift in Sources */,
 				CE7966D32B00E65700534BE5 /* Importance Enum.swift in Sources */,
 				CE1392392B04068E008671B5 /* FileCacheErrors Enum.swift in Sources */,
 				CE32533D2B054D2700FB5BB2 /* ViewController+UICollectionViewDataSource.swift in Sources */,
