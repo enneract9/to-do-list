@@ -12,6 +12,9 @@ final class TodoItemCell: UICollectionViewCell {
     static let titleFontSize: CGFloat = 16
     static let calendarFontSIze: CGFloat = 12
     
+    //forces the system to do only one layout pass
+    private var isHeightCalculated: Bool = false
+    
     var checkbox: UIButton = {
         let onImage = UIImage(systemName: "checkmark.circle")?
             .withConfiguration(UIImage.SymbolConfiguration(pointSize: 22))
@@ -25,11 +28,11 @@ final class TodoItemCell: UICollectionViewCell {
         return checkbox
     }()
     
-    var titleLabel: UILabel = {     // TODO: set font size and color
+    var titleLabel: UILabel = {                                     // TODO: set font size and color
         let label = UILabel()
-        label.text = "Title didn't configured"
+        label.text = "Title didn't configured Title didn't configured" // Title didn't configured Title didn't configured Title didn't configured Title didn't configured"
         label.numberOfLines = 3
-        label.textAlignment = .justified    // TODO: do smt with line breaks
+//        label.textAlignment = .justified                            // TODO: do smt with line breaks
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -82,13 +85,25 @@ final class TodoItemCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        setNeedsLayout()
+        layoutIfNeeded()
+        titleLabel.sizeToFit()
+        deadlineLabel.sizeToFit()
+        var newFrame = layoutAttributes.frame
+        newFrame.size.width = (superview?.frame.size.width ?? 30) - 32   // TODO: fix optional
+        newFrame.size.height = 16 + titleLabel.frame.height + 4 + deadlineLabel.frame.height + 16
+        layoutAttributes.frame = newFrame
+        isHeightCalculated = true
+
+        return layoutAttributes
+    }
+
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             
             // checkbox
             checkbox.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
-//            checkbox.widthAnchor.constraint(equalToConstant: 24),
-//            checkbox.heightAnchor.constraint(equalToConstant: 24),
             checkbox.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             
             // importanceImageView
@@ -101,12 +116,13 @@ final class TodoItemCell: UICollectionViewCell {
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
             // calendarImageView
-            calendarImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
+            calendarImageView.centerYAnchor.constraint(equalTo: deadlineLabel.centerYAnchor),
             calendarImageView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             
             // deadline label
-            deadlineLabel.centerYAnchor.constraint(equalTo: calendarImageView.centerYAnchor),
-            deadlineLabel.leadingAnchor.constraint(equalTo: calendarImageView.trailingAnchor, constant: 4)
+            deadlineLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
+            deadlineLabel.leadingAnchor.constraint(equalTo: calendarImageView.trailingAnchor, constant: 4),
+            deadlineLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
         ])
     }
 }
