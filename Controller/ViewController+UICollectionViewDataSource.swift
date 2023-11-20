@@ -10,7 +10,7 @@ import UIKit
 
 extension ViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.todoItemsCount
+        fileCache.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -18,7 +18,12 @@ extension ViewController : UICollectionViewDataSource {
             fatalError("Cell dequeueing error!") // Fix it, looks bad?
         }
         
-        // cell configuration. . .
+        let item = fileCache.items[indexPath.row]
+        
+        cell.title = item.title
+        cell.deadline = item.deadline?.toString ?? "no deadline" // TODO: Unwrap (modify cell class)
+        cell.importance = item.importance
+        cell.isDone = item.isDone
         
         return cell
     }
