@@ -9,14 +9,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private let fileCache = FileCache()
-    lazy var todoItemsCount: Int = {
-        fileCache.items.count
-    }()
+    let fileCache = FileCache()
     
     private lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        flowLayout.scrollDirection = .vertical
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         
@@ -46,3 +44,13 @@ class ViewController: UIViewController {
         ])
     }
 }
+
+//fileCache.removeAllTodoItems()
+//fileCache.addTodoItem(todoItem: TodoItem(title: "Short Title", deadline: Date.now, importance: .important))
+//fileCache.addTodoItem(todoItem: TodoItem(title: "Short Title", deadline: Date.now, importance: .usual))
+//fileCache.addTodoItem(todoItem: TodoItem(title: "Long Title -------------------------------------------------------------------------------------------", deadline: Date.now, importance: .important))
+//fileCache.addTodoItem(todoItem: TodoItem(title: "Short Title", deadline: Date.now, importance: .unimportant))
+//fileCache.addTodoItem(todoItem: TodoItem(title: "Short Title", deadline: Date.now, importance: .important))
+//fileCache.addTodoItem(todoItem: TodoItem(title: "Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title ", deadline: Date.now, importance: .important))
+//fileCache.addTodoItem(todoItem: TodoItem(title: "Short Title", deadline: Date.now, importance: .unimportant))
+//fileCache.addTodoItem(todoItem: TodoItem(title: "Short Title", deadline: Date.now, importance: .usual))

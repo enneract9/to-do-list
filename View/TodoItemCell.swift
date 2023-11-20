@@ -12,50 +12,86 @@ final class TodoItemCell: UICollectionViewCell {
     static let titleFontSize: CGFloat = 16
     static let calendarFontSIze: CGFloat = 12
     
-    //forces the system to do only one layout pass
-    private var isHeightCalculated: Bool = false
+    var title: String = "Title didn't configured" {
+        didSet {
+            titleLabel.text = title
+        }
+    }
     
-    var checkbox: UIButton = {
+    var importance: Importance = .usual {
+        didSet {
+            switch importance {
+            case .important: importanceImageView.tintColor = .systemRed
+            case .usual: {}()                                           // TODO: Make importanceImageView dissappear
+            case .unimportant: importanceImageView.tintColor = .systemGray2
+            }
+        }
+    }
+    
+    // TODO: Make deadline property optional - if nill - Make deadlineLabel and calendarImageView dissappear
+    var deadline: String = "Deadline didn't configured" {
+        didSet {
+            deadlineLabel.text = deadline
+        }
+    }
+    
+    var isDone: Bool = false {
+        didSet {
+            checkbox.isSelected = isDone
+        }
+    }
+    
+    private lazy var checkbox: UIButton = {
         let onImage = UIImage(systemName: "checkmark.circle")?
-            .withConfiguration(UIImage.SymbolConfiguration(pointSize: 22))
+            .withConfiguration(UIImage.SymbolConfiguration(pointSize: 24))
         let offImage = UIImage(systemName: "circle")?
-            .withConfiguration(UIImage.SymbolConfiguration(pointSize: 22))
+            .withConfiguration(UIImage.SymbolConfiguration(pointSize: 24))
         
         let checkbox = UIButton()
         checkbox.setImage(onImage, for: .selected)
         checkbox.setImage(offImage, for: .normal)
         checkbox.translatesAutoresizingMaskIntoConstraints = false
+        
+        checkbox.addAction(
+            UIAction(handler: { _ in
+                self.isDone.toggle()
+                checkbox.isSelected = self.isDone
+            }),
+            for: .touchUpInside)
+        
         return checkbox
     }()
     
-    var titleLabel: UILabel = {                                     // TODO: set font size and color
-        let label = UILabel()
-        label.text = "Title didn't configured Title didn't configured" // Title didn't configured Title didn't configured Title didn't configured Title didn't configured"
+    private lazy var titleLabel: UILabel = {                            // TODO: set font size and color
+        let label = UILabel()                                           // TODO: do smt with early line breaks
         label.numberOfLines = 3
-//        label.textAlignment = .justified                            // TODO: do smt with line breaks
+        label.text = title
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.sizeToFit()
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         return label
     }()
     
-    var importanceImageView: UIImageView = {
+    private var importanceImageView: UIImageView = {
         let image = UIImage(systemName: "exclamationmark.2")?
             .withConfiguration(UIImage.SymbolConfiguration(pointSize: titleFontSize + 2))
         
         let imageView = UIImageView()
         imageView.image = image
-        imageView.tintColor = .systemBlue   // did not configured cell importance state
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    var deadlineLabel: UILabel = {  // TODO: set font size and color
+    private lazy var deadlineLabel: UILabel = {                         // TODO: set font size and color
         let label = UILabel()
-        label.text = "Date didn't configured"
+        label.text = deadline
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.sizeToFit()
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         return label
     }()
     
-    var calendarImageView: UIImageView =  {
+    private var calendarImageView: UIImageView =  {
         let image = UIImage(systemName: "calendar",
                             withConfiguration: UIImage.SymbolConfiguration(pointSize: calendarFontSIze))
         let imageView = UIImageView()
@@ -76,7 +112,6 @@ final class TodoItemCell: UICollectionViewCell {
         addSubview(titleLabel)
         addSubview(calendarImageView)
         addSubview(deadlineLabel)
-//        importanceImageView.isHidden = true // TODO: How to make allocated space for hidden view dissappaer?
         
         setupConstraints()
     }
@@ -86,16 +121,14 @@ final class TodoItemCell: UICollectionViewCell {
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        setNeedsLayout()
-        layoutIfNeeded()
         titleLabel.sizeToFit()
         deadlineLabel.sizeToFit()
+        
         var newFrame = layoutAttributes.frame
-        newFrame.size.width = (superview?.frame.size.width ?? 30) - 32   // TODO: fix optional
+        newFrame.size.width = (superview?.frame.size.width ?? 32) - 32   // TODO: fix optional
         newFrame.size.height = 16 + titleLabel.frame.height + 4 + deadlineLabel.frame.height + 16
         layoutAttributes.frame = newFrame
-        isHeightCalculated = true
-
+        
         return layoutAttributes
     }
 
@@ -103,7 +136,7 @@ final class TodoItemCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             
             // checkbox
-            checkbox.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
+            checkbox.centerYAnchor.constraint(equalTo: centerYAnchor),
             checkbox.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             
             // importanceImageView
