@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
     let fileCache = FileCache()
     
@@ -27,11 +27,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Todo's"
         
         view.addSubview(collectionView)
         
         collectionView.register(TodoItemCell.self, forCellWithReuseIdentifier: TodoItemCell.reuseID)
         setupConstraints()
+        setupNavigation()
     }
 
     private func setupConstraints() {
@@ -42,6 +44,17 @@ class ViewController: UIViewController {
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
+    }
+    
+    private func setupNavigation() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.modalPresentationStyle = .popover
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBarButtonTapped))
+    }
+    
+    @objc func addBarButtonTapped() {
+        navigationController?.present(UINavigationController(rootViewController: EditorViewController()), animated: true)
     }
 }
 

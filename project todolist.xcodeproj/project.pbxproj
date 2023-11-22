@@ -22,6 +22,8 @@
 		CE7966C62B00CBBB00534BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7966C52B00CBBB00534BE5 /* Assets.xcassets */; };
 		CE7966C92B00CBBB00534BE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7966C72B00CBBB00534BE5 /* LaunchScreen.storyboard */; };
 		CE7966D32B00E65700534BE5 /* Importance Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7966D22B00E65700534BE5 /* Importance Enum.swift */; };
+		CEBC368E2B0E773700C72ADE /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC368D2B0E773700C72ADE /* EditorView.swift */; };
+		CEBC36902B0E790F00C72ADE /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC368F2B0E790F00C72ADE /* EditorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		CE7966C82B00CBBB00534BE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE7966CA2B00CBBB00534BE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE7966D22B00E65700534BE5 /* Importance Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Importance Enum.swift"; sourceTree = "<group>"; };
+		CEBC368D2B0E773700C72ADE /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
+		CEBC368F2B0E790F00C72ADE /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,30 +79,29 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		CE32533B2B054C8700FB5BB2 /* Controller */ = {
+		CE32533B2B054C8700FB5BB2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CE7966BD2B00CBBA00534BE5 /* ViewController.swift */,
-				CE32533C2B054D2700FB5BB2 /* ViewController+UICollectionViewDataSource.swift */,
-				CE32533E2B054E8C00FB5BB2 /* ViewController+UICollectionViewDelegate.swift */,
-				CE3253432B05528100FB5BB2 /* ViewController+UICollectionViewDelegateFlowLayout.swift */,
+				CEBC368A2B0E747B00C72ADE /* VIewController */,
+				CEBC368F2B0E790F00C72ADE /* EditorViewController.swift */,
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		CE3253402B054F1200FB5BB2 /* View */ = {
+		CE3253402B054F1200FB5BB2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				CE3253412B054F3C00FB5BB2 /* TodoItemCell.swift */,
+				CEBC368D2B0E773700C72ADE /* EditorView.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CE7966AD2B00CBBA00534BE5 = {
 			isa = PBXGroup;
 			children = (
-				CE3253402B054F1200FB5BB2 /* View */,
-				CE32533B2B054C8700FB5BB2 /* Controller */,
+				CE3253402B054F1200FB5BB2 /* Views */,
+				CE32533B2B054C8700FB5BB2 /* Controllers */,
 				CE32533A2B054C5600FB5BB2 /* Model */,
 				CE3253392B054C3500FB5BB2 /* Extensions */,
 				CE7966CA2B00CBBB00534BE5 /* Info.plist */,
@@ -116,6 +119,17 @@
 				CE7966B62B00CBBA00534BE5 /* project todolist.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CEBC368A2B0E747B00C72ADE /* VIewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE7966BD2B00CBBA00534BE5 /* ViewController.swift */,
+				CE32533C2B054D2700FB5BB2 /* ViewController+UICollectionViewDataSource.swift */,
+				CE32533E2B054E8C00FB5BB2 /* ViewController+UICollectionViewDelegate.swift */,
+				CE3253432B05528100FB5BB2 /* ViewController+UICollectionViewDelegateFlowLayout.swift */,
+			);
+			path = VIewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +205,7 @@
 				CE1392322B03EEE8008671B5 /* TodoItem.swift in Sources */,
 				CE7966BE2B00CBBA00534BE5 /* ViewController.swift in Sources */,
 				CE3253442B05528100FB5BB2 /* ViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
+				CEBC368E2B0E773700C72ADE /* EditorView.swift in Sources */,
 				CE6BDBFE2B0B5F8000AD774B /* Date+Extensions.swift in Sources */,
 				CE3253422B054F3C00FB5BB2 /* TodoItemCell.swift in Sources */,
 				CE7966D32B00E65700534BE5 /* Importance Enum.swift in Sources */,
@@ -200,6 +215,7 @@
 				CE1392342B03F5FB008671B5 /* FileCache.swift in Sources */,
 				CE7966BC2B00CBBA00534BE5 /* SceneDelegate.swift in Sources */,
 				CE32533F2B054E8C00FB5BB2 /* ViewController+UICollectionViewDelegate.swift in Sources */,
+				CEBC36902B0E790F00C72ADE /* EditorViewController.swift in Sources */,
 				CE1392372B03FB3B008671B5 /* TodoItems.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
