@@ -24,6 +24,7 @@
 		CE7966D32B00E65700534BE5 /* Importance Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7966D22B00E65700534BE5 /* Importance Enum.swift */; };
 		CEBC368E2B0E773700C72ADE /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC368D2B0E773700C72ADE /* EditorView.swift */; };
 		CEBC36902B0E790F00C72ADE /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC368F2B0E790F00C72ADE /* EditorViewController.swift */; };
+		CEBC36932B0FB7E100C72ADE /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC36922B0FB7E100C72ADE /* TextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		CE7966D22B00E65700534BE5 /* Importance Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Importance Enum.swift"; sourceTree = "<group>"; };
 		CEBC368D2B0E773700C72ADE /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
 		CEBC368F2B0E790F00C72ADE /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
+		CEBC36922B0FB7E100C72ADE /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,8 +93,8 @@
 		CE3253402B054F1200FB5BB2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEBC36912B0FB7C300C72ADE /* Editor */,
 				CE3253412B054F3C00FB5BB2 /* TodoItemCell.swift */,
-				CEBC368D2B0E773700C72ADE /* EditorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -130,6 +132,15 @@
 				CE3253432B05528100FB5BB2 /* ViewController+UICollectionViewDelegateFlowLayout.swift */,
 			);
 			path = VIewController;
+			sourceTree = "<group>";
+		};
+		CEBC36912B0FB7C300C72ADE /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				CEBC368D2B0E773700C72ADE /* EditorView.swift */,
+				CEBC36922B0FB7E100C72ADE /* TextField.swift */,
+			);
+			path = Editor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +216,7 @@
 				CE1392322B03EEE8008671B5 /* TodoItem.swift in Sources */,
 				CE7966BE2B00CBBA00534BE5 /* ViewController.swift in Sources */,
 				CE3253442B05528100FB5BB2 /* ViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
+				CEBC36932B0FB7E100C72ADE /* TextField.swift in Sources */,
 				CEBC368E2B0E773700C72ADE /* EditorView.swift in Sources */,
 				CE6BDBFE2B0B5F8000AD774B /* Date+Extensions.swift in Sources */,
 				CE3253422B054F3C00FB5BB2 /* TodoItemCell.swift in Sources */,

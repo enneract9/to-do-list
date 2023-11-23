@@ -9,7 +9,7 @@ import UIKit
 
 class EditorViewController: UIViewController {
     
-    let editorView = EditorView()
+    private lazy var editorView = EditorView()
     
     override func loadView() {
         view = editorView
@@ -23,13 +23,18 @@ class EditorViewController: UIViewController {
         setupNavigation()
     }
     
-
-    
     private func setupNavigation() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeBarButtonTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", image: nil, target: self, action: #selector(closeBarButtonTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", image: nil, target: self, action: #selector(saveBarButtonTapped))
+        
+        navigationItem.rightBarButtonItem?.isEnabled = false // !
     }
     
     @objc func closeBarButtonTapped() {
         dismiss(animated: true)
+    }
+    
+    @objc func saveBarButtonTapped() {
+        
     }
 }

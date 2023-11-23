@@ -19,7 +19,7 @@ final class ViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .systemBackground
+        collectionView.backgroundColor = .secondarySystemBackground
         collectionView.dataSource = self
         collectionView.delegate = self
         return collectionView

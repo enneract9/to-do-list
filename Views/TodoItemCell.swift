@@ -105,7 +105,7 @@ final class TodoItemCell: UICollectionViewCell {
         super.init(frame: frame)
         
         layer.cornerRadius = 16
-        backgroundColor = .tertiarySystemFill
+        backgroundColor = .systemBackground
         
         addSubview(checkbox)
         addSubview(importanceImageView)
