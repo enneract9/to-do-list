@@ -7,10 +7,35 @@
 
 import UIKit
 
-class PropertiesView: UIStackView {
+final class PropertiesView: UIStackView {
     
     private let subviewsPadding: NSDirectionalEdgeInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
-
+    
+    // MARK: - Arranged subviews
+    private let importanceView: ImportanceView = {
+        let importanceView = ImportanceView()
+        importanceView.translatesAutoresizingMaskIntoConstraints = false
+        importanceView.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        
+        return importanceView
+    }()
+    
+//    private let divider: DividerLine = {
+//        let divider = DividerLine()
+//
+//
+//        return divider
+//    }()
+    
+    private let deadlineView: DeadlineView = {
+        let deadlineView = DeadlineView()
+        deadlineView.translatesAutoresizingMaskIntoConstraints = false
+        deadlineView.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        
+        return deadlineView
+    }()
+    
+    // MARK: - Init
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         
@@ -21,7 +46,7 @@ class PropertiesView: UIStackView {
         
         axis = .vertical
         distribution = .equalSpacing
-        spacing = 1                                             // ? на что влияет ?
+        spacing = 0
         
         setupArrangedSubviews()
     }
@@ -31,6 +56,8 @@ class PropertiesView: UIStackView {
     }
     
     private func setupArrangedSubviews() {
-        addArrangedSubview(ImportanceView())
+        addArrangedSubview(importanceView)
+//        addArrangedSubview(divider)
+        addArrangedSubview(deadlineView)
     }
 }

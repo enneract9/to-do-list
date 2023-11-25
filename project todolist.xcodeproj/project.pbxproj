@@ -19,6 +19,7 @@
 		CE5929A52B1116200076E6C4 /* ImportanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5929A42B1116200076E6C4 /* ImportanceView.swift */; };
 		CE5929A72B1116340076E6C4 /* DeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5929A62B1116340076E6C4 /* DeadlineView.swift */; };
 		CE5929A92B1117180076E6C4 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5929A82B1117180076E6C4 /* DatePicker.swift */; };
+		CE5929AC2B11E0B20076E6C4 /* DividerLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5929AB2B11E0B20076E6C4 /* DividerLine.swift */; };
 		CE6BDBFE2B0B5F8000AD774B /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BDBFD2B0B5F8000AD774B /* Date+Extensions.swift */; };
 		CE7966BA2B00CBBA00534BE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7966B92B00CBBA00534BE5 /* AppDelegate.swift */; };
 		CE7966BC2B00CBBA00534BE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7966BB2B00CBBA00534BE5 /* SceneDelegate.swift */; };
@@ -44,6 +45,7 @@
 		CE5929A42B1116200076E6C4 /* ImportanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportanceView.swift; sourceTree = "<group>"; };
 		CE5929A62B1116340076E6C4 /* DeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineView.swift; sourceTree = "<group>"; };
 		CE5929A82B1117180076E6C4 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		CE5929AB2B11E0B20076E6C4 /* DividerLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerLine.swift; sourceTree = "<group>"; };
 		CE6BDBFD2B0B5F8000AD774B /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		CE7966B62B00CBBA00534BE5 /* project todolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project todolist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7966B92B00CBBA00534BE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				CE5929A42B1116200076E6C4 /* ImportanceView.swift */,
 				CE5929A62B1116340076E6C4 /* DeadlineView.swift */,
 				CE5929A82B1117180076E6C4 /* DatePicker.swift */,
+				CE5929AB2B11E0B20076E6C4 /* DividerLine.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				CE7966D32B00E65700534BE5 /* Importance Enum.swift in Sources */,
 				CE1392392B04068E008671B5 /* FileCacheErrors Enum.swift in Sources */,
 				CE32533D2B054D2700FB5BB2 /* ViewController+UICollectionViewDataSource.swift in Sources */,
+				CE5929AC2B11E0B20076E6C4 /* DividerLine.swift in Sources */,
 				CE7966BA2B00CBBA00534BE5 /* AppDelegate.swift in Sources */,
 				CE1392342B03F5FB008671B5 /* FileCache.swift in Sources */,
 				CE5929A52B1116200076E6C4 /* ImportanceView.swift in Sources */,
