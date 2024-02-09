@@ -24,6 +24,8 @@ class EditorViewController: UIViewController {
         
         editorView.textView.delegate = self
         setupNavigation()
+        
+        hideKeyboardWhenTappedAround()
     }
     
     private func setupNavigation() {
@@ -39,5 +41,15 @@ class EditorViewController: UIViewController {
     
     @objc func saveBarButtonTapped() {
         
+    }
+    
+    func hideKeyboardWhenTappedAround() {
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+            tap.cancelsTouchesInView = false
+            view.addGestureRecognizer(tap)
+        }
+    
+    @objc func dismissKeyboard() {
+        editorView.textView.endEditing(true)
     }
 }

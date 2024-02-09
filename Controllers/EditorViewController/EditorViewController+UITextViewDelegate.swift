@@ -10,16 +10,16 @@ import UIKit
 
 extension EditorViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.lightGray {
+        if textView.textColor == .systemGray3 {
                 textView.text = nil
-                textView.textColor = UIColor.black
+            textView.textColor = UIColor.label
         }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = TextView.placeholder
-            textView.textColor = UIColor.lightGray
+            textView.textColor = UIColor.systemGray3
         }
     }
 }
