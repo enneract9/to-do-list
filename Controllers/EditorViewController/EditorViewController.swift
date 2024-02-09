@@ -11,15 +11,18 @@ class EditorViewController: UIViewController {
     
     var todoItem: TodoItem? = nil
     
+    private lazy var editorView = EditorView(todoItem: todoItem)
+    
     override func loadView() {
-        view = EditorView(todoItem: todoItem)
+        view = editorView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Editor"
-
+        
+        editorView.textView.delegate = self
         setupNavigation()
     }
     

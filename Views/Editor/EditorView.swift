@@ -12,13 +12,18 @@ final class EditorView: UIScrollView {
     var todoItem: TodoItem?
     
     // MARK: - Subviews
-    private lazy var textField: TextField = {
-        let textField = TextField()
+    private(set) lazy var textView: TextView = {
+        let textView = TextView()
         
-        textField.text = todoItem?.title
-        textField.translatesAutoresizingMaskIntoConstraints = false
+        if let title = todoItem?.title {
+            textView.text = title
+        } else {
+            textView.resetPlaceHolder()
+        }
         
-        return textField
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return textView
     }()
     
     private let propertiesView: PropertiesView = {
@@ -34,6 +39,8 @@ final class EditorView: UIScrollView {
         
         self.todoItem = todoItem
         
+        isScrollEnabled = true
+        
         backgroundColor = .secondarySystemBackground
         addSubviews()
         setupConstraints()
@@ -45,7 +52,7 @@ final class EditorView: UIScrollView {
     
     // MARK: - Functions
     private func addSubviews() {
-        addSubview(textField)
+        addSubview(textView)
         addSubview(propertiesView)
     }
     
@@ -53,13 +60,13 @@ final class EditorView: UIScrollView {
         NSLayoutConstraint.activate([
             
             // textField
-            textField.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            textField.centerXAnchor.constraint(equalTo: centerXAnchor),
-            textField.widthAnchor.constraint(equalTo: widthAnchor, constant: -32),
-            textField.heightAnchor.constraint(greaterThanOrEqualToConstant: 120),
+            textView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            textView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            textView.widthAnchor.constraint(equalTo: widthAnchor, constant: -32),
+            textView.heightAnchor.constraint(greaterThanOrEqualToConstant: 120),
             
             // propertiesView
-            propertiesView.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 16),
+            propertiesView.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 16),
             propertiesView.centerXAnchor.constraint(equalTo: centerXAnchor),
             propertiesView.widthAnchor.constraint(equalTo: widthAnchor, constant: -32),
             
