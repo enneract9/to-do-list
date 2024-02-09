@@ -9,10 +9,10 @@ import UIKit
 
 class EditorViewController: UIViewController {
     
-    private lazy var editorView = EditorView()
+    var todoItem: TodoItem? = nil
     
     override func loadView() {
-        view = editorView
+        view = EditorView(todoItem: todoItem)
     }
 
     override func viewDidLoad() {

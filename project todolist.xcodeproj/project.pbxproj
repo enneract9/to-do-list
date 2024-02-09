@@ -103,19 +103,10 @@
 		CE3253402B054F1200FB5BB2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CEBC36912B0FB7C300C72ADE /* Editor */,
 				CE3253412B054F3C00FB5BB2 /* TodoItemCell.swift */,
+				CEBC36912B0FB7C300C72ADE /* Editor */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		CE5929A32B1114770076E6C4 /* PropertiesView */ = {
-			isa = PBXGroup;
-			children = (
-				CE5929A12B1111ED0076E6C4 /* PropertiesView.swift */,
-				CE5929AA2B1117330076E6C4 /* Subviews */,
-			);
-			path = PropertiesView;
 			sourceTree = "<group>";
 		};
 		CE5929AA2B1117330076E6C4 /* Subviews */ = {
@@ -168,10 +159,27 @@
 			isa = PBXGroup;
 			children = (
 				CEBC368D2B0E773700C72ADE /* EditorView.swift */,
-				CEBC36922B0FB7E100C72ADE /* TextField.swift */,
-				CE5929A32B1114770076E6C4 /* PropertiesView */,
+				CEE60A682B762AC70031E8B6 /* Subviews */,
 			);
 			path = Editor;
+			sourceTree = "<group>";
+		};
+		CEE60A682B762AC70031E8B6 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				CEBC36922B0FB7E100C72ADE /* TextField.swift */,
+				CEE60A692B762B7E0031E8B6 /* PropertiesView */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		CEE60A692B762B7E0031E8B6 /* PropertiesView */ = {
+			isa = PBXGroup;
+			children = (
+				CE5929A12B1111ED0076E6C4 /* PropertiesView.swift */,
+				CE5929AA2B1117330076E6C4 /* Subviews */,
+			);
+			path = PropertiesView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

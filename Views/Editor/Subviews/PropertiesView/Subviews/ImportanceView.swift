@@ -30,13 +30,13 @@ final class ImportanceView: UIStackView {
     }()
     
     private let segmentedControl: UISegmentedControl = {                    // TODO: colors
-        let control = UISegmentedControl(items: ["", "usual", ""])
-        control.setImage(
-            UIImage(systemName: "arrow.down")?.withTintColor(.systemGray2),
-            forSegmentAt: 0)
-        control.setImage(
-            UIImage(systemName: "exclamationmark.2")?.withTintColor(.systemRed),
-            forSegmentAt: 2)
+        let arrow = UIAction(image: UIImage(systemName: "arrow.down")?.withTintColor(.cyan)) { _ in print("aaaa")}
+        let control = UISegmentedControl(items: [
+            arrow,
+            "usual",
+            UIImage(systemName: "exclamationmark.2")?.withTintColor(.systemRed)
+        ])
+        
         control.selectedSegmentIndex = 1
         
         control.translatesAutoresizingMaskIntoConstraints = false

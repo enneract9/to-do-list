@@ -8,6 +8,9 @@
 import UIKit
 
 final class TodoItemCell: UICollectionViewCell {
+    
+    // MARK: - Properties
+    
     static let reuseID = "TodoItemCell"
     static let titleFontSize: CGFloat = 16
     static let calendarFontSIze: CGFloat = 12
@@ -40,6 +43,8 @@ final class TodoItemCell: UICollectionViewCell {
             checkbox.isSelected = isDone
         }
     }
+    
+    // MARK: - UI
     
     private lazy var checkbox: UIButton = {
         let onImage = UIImage(systemName: "checkmark.circle")?
@@ -101,6 +106,8 @@ final class TodoItemCell: UICollectionViewCell {
         return imageView
     }()
     
+    // MARK: - Lifecycle
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -117,8 +124,10 @@ final class TodoItemCell: UICollectionViewCell {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) has not been implemented")     // TODO: Fix it
     }
+    
+    // MARK: - Methods
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         titleLabel.sizeToFit()

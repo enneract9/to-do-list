@@ -15,7 +15,7 @@ extension ViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodoItemCell.reuseID, for: indexPath) as? TodoItemCell else {
-            fatalError("Cell dequeueing error!") // Fix it, looks bad?
+            fatalError("Cell dequeueing error!") // TODO: Fix it, looks bad
         }
         
         let item = fileCache.items[indexPath.row]

@@ -9,9 +9,13 @@ import UIKit
 
 final class EditorView: UIScrollView {
     
+    var todoItem: TodoItem?
+    
     // MARK: - Subviews
-    private let textField: TextField = {
+    private lazy var textField: TextField = {
         let textField = TextField()
+        
+        textField.text = todoItem?.title
         textField.translatesAutoresizingMaskIntoConstraints = false
         
         return textField
@@ -25,8 +29,10 @@ final class EditorView: UIScrollView {
     }()
     
     // MARK: - Init
-    override init(frame: CGRect = .zero) {
+    init(frame: CGRect = .zero, todoItem: TodoItem? = nil) {
         super.init(frame: frame)
+        
+        self.todoItem = todoItem
         
         backgroundColor = .secondarySystemBackground
         addSubviews()

@@ -54,7 +54,8 @@ final class ViewController: UIViewController {
     }
     
     @objc func addBarButtonTapped() {
-        navigationController?.present(UINavigationController(rootViewController: EditorViewController()), animated: true)
+        let vc = EditorViewController()
+        navigationController?.present(UINavigationController(rootViewController: vc), animated: true)
     }
 }
 
