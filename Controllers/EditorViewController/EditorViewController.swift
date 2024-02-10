@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditorViewController: UIViewController {
+final class EditorViewController: UIViewController {
     
     var todoItem: TodoItem? = nil
     
@@ -23,9 +23,9 @@ class EditorViewController: UIViewController {
         title = "Editor"
         
         editorView.textView.delegate = self
-        setupNavigation()
         
-        hideKeyboardWhenTappedAround()
+        setupNavigation()
+        setupKeyboard()
     }
     
     private func setupNavigation() {
@@ -43,11 +43,11 @@ class EditorViewController: UIViewController {
         
     }
     
-    func hideKeyboardWhenTappedAround() {
-            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-            tap.cancelsTouchesInView = false
-            view.addGestureRecognizer(tap)
-        }
+    private func setupKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
     
     @objc func dismissKeyboard() {
         editorView.textView.endEditing(true)

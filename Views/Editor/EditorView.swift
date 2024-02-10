@@ -28,6 +28,7 @@ final class EditorView: UIScrollView {
     
     private let propertiesView: PropertiesView = {
         let propertiesView = PropertiesView()
+        
         propertiesView.translatesAutoresizingMaskIntoConstraints = false
         
         return propertiesView
@@ -40,13 +41,13 @@ final class EditorView: UIScrollView {
         self.todoItem = todoItem
         
         isScrollEnabled = true
-        
         backgroundColor = .secondarySystemBackground
+        
         addSubviews()
         setupConstraints()
     }
     
-    required init?(coder: NSCoder) {
+    required init?(coder: NSCoder) {                            // TODO: Fix it
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -57,6 +58,7 @@ final class EditorView: UIScrollView {
     }
     
     private func setupConstraints() {
+        
         NSLayoutConstraint.activate([
             
             // textField
@@ -69,7 +71,7 @@ final class EditorView: UIScrollView {
             propertiesView.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 16),
             propertiesView.centerXAnchor.constraint(equalTo: centerXAnchor),
             propertiesView.widthAnchor.constraint(equalTo: widthAnchor, constant: -32),
-            
+            propertiesView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 }

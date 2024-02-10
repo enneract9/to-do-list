@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DividerLine: UIView {
+final class DividerLine: UIView {
     
     init() {
         let frame = CGRect(origin: .zero, size: CGSize(width: 100, height: 5))

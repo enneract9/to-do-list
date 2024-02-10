@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DatePicker: UIDatePicker {
+final class DatePicker: UIDatePicker {
 
     /*
     // Only override draw() if you perform custom drawing.

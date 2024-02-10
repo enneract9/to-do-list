@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DeadlineView: UIStackView {
+final class DeadlineView: UIStackView {
     
     var deadline: Date? {
         didSet {
