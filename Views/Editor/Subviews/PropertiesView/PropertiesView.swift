@@ -9,11 +9,23 @@ import UIKit
 
 final class PropertiesView: UIStackView {
     
+    var importance: Importance = .usual {
+        didSet {
+            importanceView.importance = importance
+        }
+    }
+    var deadline: Date? {
+        didSet {
+            deadlineView.deadline = deadline
+        }
+    }
+    
     private let subviewsPadding: NSDirectionalEdgeInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
     
     // MARK: - Arranged subviews
     private let importanceView: ImportanceView = {
         let importanceView = ImportanceView()
+        
         importanceView.translatesAutoresizingMaskIntoConstraints = false
         importanceView.heightAnchor.constraint(equalToConstant: 56).isActive = true
         
@@ -29,6 +41,7 @@ final class PropertiesView: UIStackView {
     
     private let deadlineView: DeadlineView = {
         let deadlineView = DeadlineView()
+        
         deadlineView.translatesAutoresizingMaskIntoConstraints = false
         deadlineView.heightAnchor.constraint(equalToConstant: 56).isActive = true
         

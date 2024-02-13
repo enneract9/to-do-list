@@ -15,5 +15,4 @@ extension ViewController : UICollectionViewDelegate {
         
         navigationController?.present(UINavigationController(rootViewController: vc), animated: true)
     }
-    
 }

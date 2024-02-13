@@ -29,6 +29,6 @@ final class TextView: UITextView {
     
     func resetPlaceHolder() {
         text = TextView.placeholder
-        textColor = UIColor.systemGray3
+        textColor = UIColor.placeholderText
     }
 }

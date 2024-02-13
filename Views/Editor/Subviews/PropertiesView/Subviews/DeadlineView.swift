@@ -13,11 +13,10 @@ final class DeadlineView: UIStackView {
         didSet {
             if let deadline = deadline {
                 button.setTitle(deadline.toStringCropped, for: .normal)
-                button.isHidden = false
                 deadlineSwitch.isOn = true
             } else {
-                button.isHidden = true
                 deadlineSwitch.isOn = false
+                updateButton()
             }
         }
     }
@@ -34,7 +33,6 @@ final class DeadlineView: UIStackView {
     
     private let button: UIButton = {
         let button = UIButton()
-        button.isHidden = true
         button.setTitle("-no conf-", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)             // color when highlighed?
         
@@ -60,9 +58,8 @@ final class DeadlineView: UIStackView {
     }()
     
     // MARK: - Init
-    init(frame: CGRect = .zero, deadline: Date? = nil) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
-        self.deadline = deadline
         
         axis = .horizontal
         distribution = .equalSpacing
@@ -98,8 +95,10 @@ final class DeadlineView: UIStackView {
     }
     
     private lazy var deadlineSwitchChanged = UIAction { _ in
-        // set date to button ?
-        
+        self.updateButton()
+    }
+    
+    private func updateButton() {
         UIView.transition(with: self.button, duration: 0.2, options: .transitionCrossDissolve) {
             self.button.isHidden = !self.deadlineSwitch.isOn
             self.button.alpha = self.deadlineSwitch.isOn ? 1 : 0

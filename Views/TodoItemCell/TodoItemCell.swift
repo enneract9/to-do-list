@@ -46,15 +46,19 @@ final class TodoItemCell: UICollectionViewCell {
     
     // MARK: - UI
     
-    private lazy var checkbox: UIButton = {
-        let onImage = UIImage(systemName: "checkmark.circle")?
-            .withConfiguration(UIImage.SymbolConfiguration(pointSize: 24))
-        let offImage = UIImage(systemName: "circle")?
-            .withConfiguration(UIImage.SymbolConfiguration(pointSize: 24))
+    private lazy var checkbox: Checkbox = {
+//        let onImage = UIImage(systemName: "checkmark.circle")?
+//            .withConfiguration(UIImage.SymbolConfiguration(pointSize: 24))
+//        let offImage = UIImage(systemName: "circle")?
+//            .withConfiguration(UIImage.SymbolConfiguration(pointSize: 24))
+//
+//        let checkbox = UIButton()
+//        checkbox.setImage(onImage, for: .selected)
+//        checkbox.setImage(offImage, for: .normal)
+//
         
-        let checkbox = UIButton()
-        checkbox.setImage(onImage, for: .selected)
-        checkbox.setImage(offImage, for: .normal)
+        let checkbox = Checkbox()
+        
         checkbox.translatesAutoresizingMaskIntoConstraints = false
         
         checkbox.addAction(

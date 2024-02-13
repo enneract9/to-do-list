@@ -9,14 +9,16 @@ import UIKit
 
 final class EditorViewController: UIViewController {
     
+    // MARK: - Properties
     var todoItem: TodoItem? = nil
     
-    private lazy var editorView = EditorView(todoItem: todoItem)
+    private let editorView = EditorView()
     
+    // MARK: - Lifecycle
     override func loadView() {
         view = editorView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +30,15 @@ final class EditorViewController: UIViewController {
         setupKeyboard()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        editorView.title = todoItem?.title
+        editorView.importance = todoItem?.importance
+        editorView.deadline = todoItem?.deadline
+    }
+    
+    // MARK: - Methods
     private func setupNavigation() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", image: nil, target: self, action: #selector(closeBarButtonTapped))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", image: nil, target: self, action: #selector(saveBarButtonTapped))
@@ -45,7 +56,7 @@ final class EditorViewController: UIViewController {
     
     private func setupKeyboard() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tap.cancelsTouchesInView = false
+//        tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
     

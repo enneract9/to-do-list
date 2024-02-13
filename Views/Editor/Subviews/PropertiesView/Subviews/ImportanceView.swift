@@ -9,19 +9,14 @@ import UIKit
 
 final class ImportanceView: UIStackView {
     
-    // MARK: Subviews
+    // MARK: - Properties
     var importance: Importance = .usual {
         didSet {
-            var index: Int
-            switch importance {
-            case .unimportant: index = 0
-            case .usual: index = 1
-            case .important: index = 2
-            }
-            segmentedControl.selectedSegmentIndex = index
+            segmentedControl.selectedSegmentIndex = importance.rawValue
         }
     }
     
+    // MARK: Subviews
     private let label: UILabel = {
         let label = UILabel()
         label.text = "Importance"
@@ -29,12 +24,12 @@ final class ImportanceView: UIStackView {
         return label
     }()
     
-    private let segmentedControl: UISegmentedControl = {                    // TODO: colors
+    private var segmentedControl: UISegmentedControl = {                    // TODO: colors
         let arrow = UIAction(image: UIImage(systemName: "arrow.down")?.withTintColor(.cyan)) { _ in print("aaaa")}
         let control = UISegmentedControl(items: [
             arrow,
             "usual",
-            UIImage(systemName: "exclamationmark.2")?.withTintColor(.systemRed)
+            UIImage(systemName: "exclamationmark.2")!.withTintColor(.systemRed)  // TODO: !!!
         ])
         
         control.selectedSegmentIndex = 1

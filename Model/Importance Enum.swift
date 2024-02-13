@@ -7,10 +7,10 @@
 
 import Foundation
 
-enum Importance: String {
-    case usual
-    case important
-    case unimportant
+enum Importance: Int {
+    case unimportant = 0
+    case usual = 1
+    case important = 2
 }
 
 extension Importance: Codable {

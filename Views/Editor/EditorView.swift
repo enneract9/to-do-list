@@ -9,17 +9,34 @@ import UIKit
 
 final class EditorView: UIScrollView {
     
-    var todoItem: TodoItem?
+    // MARK: - Properties
+    var title: String? {
+        didSet {
+            if let title = title {
+                textView.text = title
+            } else {
+                textView.resetPlaceHolder()
+            }
+        }
+    }
+    
+    var importance: Importance? {
+        didSet {
+            if let importance = importance {
+                propertiesView.importance = importance
+            }
+        }
+    }
+    
+    var deadline: Date? {
+        didSet {
+            propertiesView.deadline = deadline
+        }
+    }
     
     // MARK: - Subviews
-    private(set) lazy var textView: TextView = {
+    private(set) var textView: TextView = {
         let textView = TextView()
-        
-        if let title = todoItem?.title {
-            textView.text = title
-        } else {
-            textView.resetPlaceHolder()
-        }
         
         textView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -35,10 +52,8 @@ final class EditorView: UIScrollView {
     }()
     
     // MARK: - Init
-    init(frame: CGRect = .zero, todoItem: TodoItem? = nil) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        self.todoItem = todoItem
         
         isScrollEnabled = true
         backgroundColor = .secondarySystemBackground

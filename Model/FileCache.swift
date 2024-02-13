@@ -81,3 +81,19 @@ final class FileCache {
 // асинхронность!
 // async-await ?
 // throws c gcd ?
+
+extension FileCache {
+    func addTestTodoItemsToJSON() {
+        let items = [
+            TodoItem(title: "Usual todo", importance: .usual),
+            TodoItem(title: "Long title todo long title todo long title todo long title todo long title todo long title todo long title todo ", importance: .usual),
+            TodoItem(title: "Todo with deadline", deadline: Date.now.addingTimeInterval(TimeInterval(integerLiteral: 1000)), importance: .usual),
+            TodoItem(title: "Important todo", importance: .important),
+            TodoItem(title: "Unimportant todo", importance: .unimportant)
+        ]
+        
+        self.items = items
+        
+        saveToJSONFile()
+    }
+}

@@ -10,7 +10,7 @@ import UIKit
 
 extension EditorViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == .systemGray3 {
+        if textView.textColor == .placeholderText {
                 textView.text = nil
             textView.textColor = UIColor.label
         }
@@ -19,7 +19,7 @@ extension EditorViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = TextView.placeholder
-            textView.textColor = UIColor.systemGray3
+            textView.textColor = UIColor.placeholderText
         }
     }
 }

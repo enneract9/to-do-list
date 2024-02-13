@@ -29,6 +29,9 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         title = "Todo's"
         
+        fileCache.addTestTodoItemsToJSON()
+//        fileCache.removeAllTodoItems()
+        
         view.addSubview(collectionView)
         
         collectionView.register(TodoItemCell.self, forCellWithReuseIdentifier: TodoItemCell.reuseID)
@@ -58,13 +61,3 @@ final class ViewController: UIViewController {
         navigationController?.present(UINavigationController(rootViewController: vc), animated: true)
     }
 }
-
-//fileCache.removeAllTodoItems()
-//fileCache.addTodoItem(todoItem: TodoItem(title: "Short Title", deadline: Date.now, importance: .important))
-//fileCache.addTodoItem(todoItem: TodoItem(title: "Short Title", deadline: Date.now, importance: .usual))
-//fileCache.addTodoItem(todoItem: TodoItem(title: "Long Title -------------------------------------------------------------------------------------------", deadline: Date.now, importance: .important))
-//fileCache.addTodoItem(todoItem: TodoItem(title: "Short Title", deadline: Date.now, importance: .unimportant))
-//fileCache.addTodoItem(todoItem: TodoItem(title: "Short Title", deadline: Date.now, importance: .important))
-//fileCache.addTodoItem(todoItem: TodoItem(title: "Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title ", deadline: Date.now, importance: .important))
-//fileCache.addTodoItem(todoItem: TodoItem(title: "Short Title", deadline: Date.now, importance: .unimportant))
-//fileCache.addTodoItem(todoItem: TodoItem(title: "Short Title", deadline: Date.now, importance: .usual))
