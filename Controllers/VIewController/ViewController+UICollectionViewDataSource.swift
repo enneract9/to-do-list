@@ -21,7 +21,7 @@ extension ViewController : UICollectionViewDataSource {
         let item = fileCache.items[indexPath.row]
         
         cell.title = item.title
-        cell.deadline = item.deadline?.toString ?? "no deadline" // TODO: Unwrap (modify cell class)
+        cell.deadline = item.deadline
         cell.importance = item.importance
         cell.isDone = item.isDone
         

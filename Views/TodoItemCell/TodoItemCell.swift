@@ -15,88 +15,44 @@ final class TodoItemCell: UICollectionViewCell {
     static let titleFontSize: CGFloat = 16
     static let calendarFontSIze: CGFloat = 12
     
-    var title: String = "Title didn't configured" {
-        didSet {
-            titleLabel.text = title
-        }
+    var title: String {
+        get { titleLabel.title ?? "" }
+        set { titleLabel.title = newValue }
     }
     
-    var importance: Importance = .usual {
-        didSet {
-            switch importance {
-            case .important: importanceImageView.tintColor = .systemRed
-            case .usual: {}()                                           // TODO: Make importanceImageView dissappear
-            case .unimportant: importanceImageView.tintColor = .systemGray2
-            }
-        }
+    var importance: Importance {
+        get { titleLabel.importance }
+        set { titleLabel.importance = newValue }
     }
     
-    // TODO: Make deadline property optional - if nill - Make deadlineLabel and calendarImageView dissappear
-    var deadline: String = "Deadline didn't configured" {
-        didSet {
-            deadlineLabel.text = deadline
-        }
-    }
-    
-    var isDone: Bool = false {
-        didSet {
-            checkbox.isSelected = isDone
-        }
-    }
+    var deadline: Date?
+    var isDone: Bool = false
     
     // MARK: - UI
     
-    private lazy var checkbox: Checkbox = {
-//        let onImage = UIImage(systemName: "checkmark.circle")?
-//            .withConfiguration(UIImage.SymbolConfiguration(pointSize: 24))
-//        let offImage = UIImage(systemName: "circle")?
-//            .withConfiguration(UIImage.SymbolConfiguration(pointSize: 24))
-//
-//        let checkbox = UIButton()
-//        checkbox.setImage(onImage, for: .selected)
-//        checkbox.setImage(offImage, for: .normal)
-//
-        
+    private var checkbox: Checkbox = {
         let checkbox = Checkbox()
-        
+    
         checkbox.translatesAutoresizingMaskIntoConstraints = false
-        
-        checkbox.addAction(
-            UIAction(handler: { _ in
-                self.isDone.toggle()
-                checkbox.isSelected = self.isDone
-            }),
-            for: .touchUpInside)
-        
+            
         return checkbox
     }()
     
-    private lazy var titleLabel: UILabel = {                            // TODO: set font size and color
-        let label = UILabel()                                           // TODO: do smt with early line breaks
-        label.numberOfLines = 3
-        label.text = title
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.sizeToFit()
-        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        return label
-    }()
-    
-    private var importanceImageView: UIImageView = {
-        let image = UIImage(systemName: "exclamationmark.2")?
-            .withConfiguration(UIImage.SymbolConfiguration(pointSize: titleFontSize + 2))
+    private var titleLabel: TitleLabel = {
+        let titleLabel = TitleLabel()
         
-        let imageView = UIImageView()
-        imageView.image = image
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+//        titleLabel.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        return titleLabel
     }()
     
     private lazy var deadlineLabel: UILabel = {                         // TODO: set font size and color
         let label = UILabel()
-        label.text = deadline
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.sizeToFit()
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -106,6 +62,7 @@ final class TodoItemCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.image = image
         imageView.tintColor = .systemGray2
+        
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -119,10 +76,10 @@ final class TodoItemCell: UICollectionViewCell {
         backgroundColor = .systemBackground
         
         addSubview(checkbox)
-        addSubview(importanceImageView)
+//        addSubview(importanceImageView)
         addSubview(titleLabel)
-        addSubview(calendarImageView)
-        addSubview(deadlineLabel)
+//        addSubview(calendarImageView)
+//        addSubview(deadlineLabel)
         
         setupConstraints()
     }
@@ -134,14 +91,16 @@ final class TodoItemCell: UICollectionViewCell {
     // MARK: - Methods
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        titleLabel.sizeToFit()
-        deadlineLabel.sizeToFit()
-        
+
+        setNeedsLayout()
+        layoutIfNeeded()
+
         var newFrame = layoutAttributes.frame
         newFrame.size.width = (superview?.frame.size.width ?? 32) - 32   // TODO: fix optional
-        newFrame.size.height = 16 + titleLabel.frame.height + 4 + deadlineLabel.frame.height + 16
+        newFrame.size.height = 32 + (titleLabel.frame.height > checkbox.frame.height ? titleLabel.frame.height : checkbox.frame.height)
+
         layoutAttributes.frame = newFrame
-        
+
         return layoutAttributes
     }
 
@@ -153,22 +112,24 @@ final class TodoItemCell: UICollectionViewCell {
             checkbox.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             
             // importanceImageView
-            importanceImageView.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
-            importanceImageView.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 12),
+//            importanceImageView.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
+//            importanceImageView.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 12),
             
             // title label
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            titleLabel.leadingAnchor.constraint(equalTo: importanceImageView.trailingAnchor, constant: 4),
+            titleLabel.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 4),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+//            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+            
             
             // calendarImageView
-            calendarImageView.centerYAnchor.constraint(equalTo: deadlineLabel.centerYAnchor),
-            calendarImageView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            
-            // deadline label
-            deadlineLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
-            deadlineLabel.leadingAnchor.constraint(equalTo: calendarImageView.trailingAnchor, constant: 4),
-            deadlineLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+//            calendarImageView.centerYAnchor.constraint(equalTo: deadlineLabel.centerYAnchor),
+//            calendarImageView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+//
+//            // deadline label
+//            deadlineLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
+//            deadlineLabel.leadingAnchor.constraint(equalTo: calendarImageView.trailingAnchor, constant: 4),
+//            deadlineLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
         ])
     }
 }
