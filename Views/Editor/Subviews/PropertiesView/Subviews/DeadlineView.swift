@@ -8,7 +8,7 @@
 import UIKit
 
 final class DeadlineView: UIStackView {
-    
+
     var deadline: Date? {
         didSet {
             if let deadline = deadline {
@@ -20,7 +20,7 @@ final class DeadlineView: UIStackView {
             }
         }
     }
-    
+
     // MARK: - Subviews
     private let label: UILabel = {
         let label = UILabel()
