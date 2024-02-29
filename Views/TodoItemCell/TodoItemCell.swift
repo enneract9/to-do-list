@@ -12,8 +12,6 @@ final class TodoItemCell: UICollectionViewCell {
     // MARK: Properties
     
     static let reuseID = "TodoItemCell"
-    static let titleFontSize: CGFloat = 16
-    static let calendarFontSIze: CGFloat = 12
     
     var title: String? {
         get { titleStack.title }
@@ -30,6 +28,7 @@ final class TodoItemCell: UICollectionViewCell {
         set {
             deadlineStack.deadline = newValue
             deadlineStack.isHidden = newValue == nil
+            updateBottomConstraints()
         }
     }
     
@@ -37,6 +36,13 @@ final class TodoItemCell: UICollectionViewCell {
         get { checkbox.isSelected }
         set { checkbox.isSelected = newValue }
     }
+    
+    private lazy var titleStackBottomConstraint = titleStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+    private lazy var deadlineStackConstraints = [
+        deadlineStack.topAnchor.constraint(equalTo: titleStack.bottomAnchor),
+        deadlineStack.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 4),
+        deadlineStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+    ]
     
     // MARK: UI
     
@@ -53,7 +59,6 @@ final class TodoItemCell: UICollectionViewCell {
     private let titleStack: TitleStack = {
         let titleStack = TitleStack()
         
-//        titleStack.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         titleStack.translatesAutoresizingMaskIntoConstraints = false
         
         return titleStack
@@ -82,8 +87,10 @@ final class TodoItemCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
-    // MARK: Methods
+}
+
+// MARK: - Setup methods extension
+private extension TodoItemCell {
     
     private func addSubviews() {
         addSubview(checkbox)
@@ -93,22 +100,28 @@ final class TodoItemCell: UICollectionViewCell {
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            
             // checkbox
             checkbox.centerYAnchor.constraint(equalTo: centerYAnchor),
             checkbox.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             checkbox.widthAnchor.constraint(equalToConstant: 28),
             checkbox.heightAnchor.constraint(equalToConstant: 28),
             
-//             titleStack
+            // titleStack
             titleStack.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             titleStack.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 4),
-            titleStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            
-//             deadlineStack
-            deadlineStack.topAnchor.constraint(equalTo: titleStack.bottomAnchor),
-            deadlineStack.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 4),
-            deadlineStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+            titleStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
+        
+        updateBottomConstraints()
+    }
+    
+    private func updateBottomConstraints() {
+        titleStackBottomConstraint.isActive = deadlineStack.isHidden
+        
+        if deadlineStack.isHidden {
+            NSLayoutConstraint.deactivate(deadlineStackConstraints)
+        } else {
+            NSLayoutConstraint.activate(deadlineStackConstraints)
+        }
     }
 }
