@@ -9,16 +9,16 @@ import UIKit
 
 class Checkbox: UIButton {
 
-    // MARK: - Properties
+    // MARK: Properties
     private let selectedImage = UIImage(systemName: "checkmark.circle")?
         .withConfiguration(UIImage.SymbolConfiguration(pointSize: 24))
     
     private let normalImage = UIImage(systemName: "circle")?
         .withConfiguration(UIImage.SymbolConfiguration(pointSize: 24))
     
-    let seletedColor: UIColor = .systemGray3
+    var seletedColor: UIColor = .systemGray3
     
-    let normalColor: UIColor = .systemBlue
+    var normalColor: UIColor = .systemBlue
     
     override var isSelected: Bool {
         didSet {
@@ -26,7 +26,7 @@ class Checkbox: UIButton {
         }
     }
     
-    // MARK: - Initializers
+    // MARK: Initializers
     override init(frame: CGRect) {
         super .init(frame: frame)
         
@@ -37,9 +37,7 @@ class Checkbox: UIButton {
         
     }
     
-    required init?(coder: NSCoder) {                                // TODO: Fix it
-        fatalError("init(coder:) has not been implemented")
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
-    
-    
 }

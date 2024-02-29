@@ -12,11 +12,22 @@ final class ViewController: UIViewController {
     let fileCache = FileCache()
     
     private lazy var collectionView: UICollectionView = {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        flowLayout.scrollDirection = .vertical
         
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        let size = NSCollectionLayoutSize(
+            widthDimension: NSCollectionLayoutDimension.fractionalWidth(1.0),
+            heightDimension: .estimated(44)
+        )
+        
+        let item = NSCollectionLayoutItem(layoutSize: size)
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: size, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
+        section.interGroupSpacing = 16
+        
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .secondarySystemBackground
@@ -29,7 +40,7 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         title = "Todo's"
         
-        fileCache.addTestTodoItemsToJSON()
+//        fileCache.addTestTodoItemsToJSON()
 //        fileCache.removeAllTodoItems()
         
         view.addSubview(collectionView)

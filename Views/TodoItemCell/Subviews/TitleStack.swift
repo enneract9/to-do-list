@@ -1,5 +1,5 @@
 //
-//  TitleLabel.swift
+//  TitleStack.swift
 //  project todolist
 //
 //  Created by @_@ on 16.02.2024.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class TitleLabel: UIStackView {
+class TitleStack: UIStackView {
     
-    static var titleFontSize: CGFloat = 16
+    static let titleFontSize: CGFloat = 16
     
     var title: String? {
         get { label.text }
@@ -24,7 +24,7 @@ class TitleLabel: UIStackView {
         }
     }
     
-    private var label: UILabel = {                                 // TODO: set font size and color
+    private let label: UILabel = {                                 // TODO: set font size and color
         let label = UILabel()                                      // TODO: do smt with early line breaks
         label.numberOfLines = 3
         label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
@@ -32,8 +32,10 @@ class TitleLabel: UIStackView {
         return label
     }()
     
-    private var importanceImageView: UIImageView = {
+    private let importanceImageView: UIImageView = {
         let imageView = UIImageView()
+        
+        imageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
         return imageView
     }()

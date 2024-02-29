@@ -9,65 +9,65 @@ import UIKit
 
 final class TodoItemCell: UICollectionViewCell {
     
-    // MARK: - Properties
+    // MARK: Properties
     
     static let reuseID = "TodoItemCell"
     static let titleFontSize: CGFloat = 16
     static let calendarFontSIze: CGFloat = 12
     
-    var title: String {
-        get { titleLabel.title ?? "" }
-        set { titleLabel.title = newValue }
+    var title: String? {
+        get { titleStack.title }
+        set { titleStack.title = newValue }
     }
     
     var importance: Importance {
-        get { titleLabel.importance }
-        set { titleLabel.importance = newValue }
+        get { titleStack.importance }
+        set { titleStack.importance = newValue }
     }
     
-    var deadline: Date?
-    var isDone: Bool = false
+    var deadline: Date? {
+        get { deadlineStack.deadline }
+        set {
+            deadlineStack.deadline = newValue
+            deadlineStack.isHidden = newValue == nil
+        }
+    }
     
-    // MARK: - UI
+    var isDone: Bool {
+        get { checkbox.isSelected }
+        set { checkbox.isSelected = newValue }
+    }
     
-    private var checkbox: Checkbox = {
+    // MARK: UI
+    
+    private let checkbox: Checkbox = {
         let checkbox = Checkbox()
+        
+        checkbox.setContentHuggingPriority(.defaultHigh, for: .horizontal)
     
         checkbox.translatesAutoresizingMaskIntoConstraints = false
             
         return checkbox
     }()
     
-    private var titleLabel: TitleLabel = {
-        let titleLabel = TitleLabel()
+    private let titleStack: TitleStack = {
+        let titleStack = TitleStack()
         
-//        titleLabel.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+//        titleStack.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
+        titleStack.translatesAutoresizingMaskIntoConstraints = false
         
-        return titleLabel
+        return titleStack
     }()
     
-    private lazy var deadlineLabel: UILabel = {                         // TODO: set font size and color
-        let label = UILabel()
-        label.sizeToFit()
-        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+    private let deadlineStack: DeadlineStack = {
+        let deadlineStack = DeadlineStack()
         
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        deadlineStack.translatesAutoresizingMaskIntoConstraints = false
+        
+        return deadlineStack
     }()
     
-    private var calendarImageView: UIImageView =  {
-        let image = UIImage(systemName: "calendar",
-                            withConfiguration: UIImage.SymbolConfiguration(pointSize: calendarFontSIze))
-        let imageView = UIImageView()
-        imageView.image = image
-        imageView.tintColor = .systemGray2
-        
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
-    // MARK: - Lifecycle
+    // MARK: Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -75,33 +75,20 @@ final class TodoItemCell: UICollectionViewCell {
         layer.cornerRadius = 16
         backgroundColor = .systemBackground
         
-        addSubview(checkbox)
-//        addSubview(importanceImageView)
-        addSubview(titleLabel)
-//        addSubview(calendarImageView)
-//        addSubview(deadlineLabel)
-        
+        addSubviews()
         setupConstraints()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")     // TODO: Fix it
+        super.init(coder: coder)
     }
     
-    // MARK: - Methods
+    // MARK: Methods
     
-    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-
-        setNeedsLayout()
-        layoutIfNeeded()
-
-        var newFrame = layoutAttributes.frame
-        newFrame.size.width = (superview?.frame.size.width ?? 32) - 32   // TODO: fix optional
-        newFrame.size.height = 32 + (titleLabel.frame.height > checkbox.frame.height ? titleLabel.frame.height : checkbox.frame.height)
-
-        layoutAttributes.frame = newFrame
-
-        return layoutAttributes
+    private func addSubviews() {
+        addSubview(checkbox)
+        addSubview(titleStack)
+        addSubview(deadlineStack)
     }
 
     private func setupConstraints() {
@@ -110,26 +97,18 @@ final class TodoItemCell: UICollectionViewCell {
             // checkbox
             checkbox.centerYAnchor.constraint(equalTo: centerYAnchor),
             checkbox.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            checkbox.widthAnchor.constraint(equalToConstant: 28),
+            checkbox.heightAnchor.constraint(equalToConstant: 28),
             
-            // importanceImageView
-//            importanceImageView.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
-//            importanceImageView.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 12),
+//             titleStack
+            titleStack.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            titleStack.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 4),
+            titleStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
-            // title label
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            titleLabel.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 4),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-//            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
-            
-            
-            // calendarImageView
-//            calendarImageView.centerYAnchor.constraint(equalTo: deadlineLabel.centerYAnchor),
-//            calendarImageView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-//
-//            // deadline label
-//            deadlineLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
-//            deadlineLabel.leadingAnchor.constraint(equalTo: calendarImageView.trailingAnchor, constant: 4),
-//            deadlineLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+//             deadlineStack
+            deadlineStack.topAnchor.constraint(equalTo: titleStack.bottomAnchor),
+            deadlineStack.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 4),
+            deadlineStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
         ])
     }
 }

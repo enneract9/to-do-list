@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension ViewController : UICollectionViewDataSource {
+extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         fileCache.items.count
     }
