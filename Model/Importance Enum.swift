@@ -15,17 +15,17 @@ enum Importance: Int {
     
     var tintColor: UIColor {
         switch self {
-        case .important : return .systemRed
-        case .usual : return .black
-        case .unimportant : return .systemGray3
+        case .important: return .systemRed
+        case .usual: return .black
+        case .unimportant: return .systemGray3
         }
     }
     
     var image: UIImage? {
         switch self {
-        case .important : return UIImage(systemName: "exclamationmark.2")
-        case .unimportant : return UIImage(systemName: "arrow.down")
-        default : return nil
+        case .important: return UIImage(systemName: "exclamationmark.2")
+        case .unimportant: return UIImage(systemName: "arrow.down")
+        default: return nil
         }
     }
 }

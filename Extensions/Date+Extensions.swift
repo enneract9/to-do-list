@@ -9,7 +9,7 @@ import Foundation
 
 private let dateFormatter: DateFormatter = {
      let dateFormatter = DateFormatter()
-     dateFormatter.locale = Locale(identifier: "Ru_ru")
+     dateFormatter.locale = Locale(identifier: "en-US")
      dateFormatter.dateFormat = "dd MMMM yyyy"
     
      return dateFormatter
@@ -17,7 +17,7 @@ private let dateFormatter: DateFormatter = {
 
 private let croppedDateFormatter: DateFormatter = {
      let dateFormatter = DateFormatter()
-     dateFormatter.locale = Locale(identifier: "Ru_ru")
+     dateFormatter.locale = Locale(identifier: "en-US")
      dateFormatter.dateFormat = "dd MMMM"
     
      return dateFormatter

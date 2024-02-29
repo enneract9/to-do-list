@@ -37,6 +37,7 @@ final class TodoItemCell: UICollectionViewCell {
         set { checkbox.isSelected = newValue }
     }
     
+    // Constraints
     private lazy var titleStackBottomConstraint = titleStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
     private lazy var deadlineStackConstraints = [
         deadlineStack.topAnchor.constraint(equalTo: titleStack.bottomAnchor),
@@ -72,12 +73,15 @@ final class TodoItemCell: UICollectionViewCell {
         return deadlineStack
     }()
     
-    // MARK: Lifecycle
+    // MARK: Initializers
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         layer.cornerRadius = 16
+//        layer.shadowColor = UIColor.black.cgColor
+//        layer.shadowRadius = 50
+        
         backgroundColor = .systemBackground
         
         addSubviews()
@@ -89,7 +93,7 @@ final class TodoItemCell: UICollectionViewCell {
     }
 }
 
-// MARK: - Setup methods extension
+// MARK: - Setup extension
 private extension TodoItemCell {
     
     private func addSubviews() {

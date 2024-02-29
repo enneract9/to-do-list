@@ -10,30 +10,32 @@ import UIKit
 class DeadlineStack: UIStackView {
     
     static let calendarFontSize: CGFloat = 12
+    static let labelFontSize: CGFloat = 15
     
     var deadline: Date? {
         didSet { deadlineLabel.text = deadline?.toStringCropped }
     }
     
-    private let deadlineLabel: UILabel = {                         // TODO: set font size and color
+    private let deadlineLabel: UILabel = {
         let label = UILabel()
-//        label.sizeToFit()
-//        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         
-//        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .systemGray2
+        label.font = .systemFont(ofSize: labelFontSize)
+        
         return label
     }()
     
     private let calendarImageView: UIImageView =  {
         let image = UIImage(systemName: "calendar",
                             withConfiguration: UIImage.SymbolConfiguration(pointSize: calendarFontSize))
+        
         let imageView = UIImageView()
         imageView.image = image
         imageView.tintColor = .systemGray2
         
-//        imageView.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        imageView.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        imageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     

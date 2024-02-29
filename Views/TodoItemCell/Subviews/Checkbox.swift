@@ -35,6 +35,9 @@ class Checkbox: UIButton {
         setImage(selectedImage, for: .selected)
         setImage(normalImage, for: .normal)
         
+        addAction(UIAction(handler: { _ in
+            self.isSelected.toggle()
+        }), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
