@@ -56,7 +56,7 @@ final class ViewController: UIViewController {
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
     
@@ -68,7 +68,7 @@ final class ViewController: UIViewController {
     }
     
     @objc func addBarButtonTapped() {
-        let vc = EditorViewController()
-        navigationController?.present(UINavigationController(rootViewController: vc), animated: true)
+        let editorViewController = EditorViewController()
+        navigationController?.present(UINavigationController(rootViewController: editorViewController), animated: true)
     }
 }

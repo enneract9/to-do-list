@@ -16,7 +16,7 @@ final class FileCache {
     }
     
     func addTodoItem(todoItem: TodoItem) {
-        if let index = items.firstIndex(where: { item in item.id == todoItem.id } ) {
+        if let index = items.firstIndex(where: { item in item.id == todoItem.id }) {
             items[index] = todoItem
         } else {
             items.append(todoItem)
@@ -26,7 +26,7 @@ final class FileCache {
     }
     
     func removeTodoItem(id: UUID) -> TodoItem? {
-        if let index = items.firstIndex(where: { item in item.id == id } ) {
+        if let index = items.firstIndex(where: { item in item.id == id }) {
             let removedItem = items.remove(at: index)
             saveToJSONFile()
             return removedItem

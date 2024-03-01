@@ -10,7 +10,7 @@ import UIKit
 final class EditorViewController: UIViewController {
     
     // MARK: - Properties
-    var todoItem: TodoItem? = nil
+    var todoItem: TodoItem?
     
     private let editorView = EditorView()
     

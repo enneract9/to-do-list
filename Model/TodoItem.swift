@@ -27,7 +27,6 @@ struct TodoItem: Codable {
     }
 }
 
-
 /*
  struct VS class usage
  https://developer.apple.com/documentation/swift/choosing-between-structures-and-classes

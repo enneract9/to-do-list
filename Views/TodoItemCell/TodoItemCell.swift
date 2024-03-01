@@ -10,7 +10,6 @@ import UIKit
 final class TodoItemCell: UICollectionViewCell {
     
     // MARK: Properties
-    
     static let reuseID = "TodoItemCell"
     
     var title: String? {
@@ -47,31 +46,9 @@ final class TodoItemCell: UICollectionViewCell {
     
     // MARK: UI
     
-    private let checkbox: Checkbox = {
-        let checkbox = Checkbox()
-        
-        checkbox.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-    
-        checkbox.translatesAutoresizingMaskIntoConstraints = false
-            
-        return checkbox
-    }()
-    
-    private let titleStack: TitleStack = {
-        let titleStack = TitleStack()
-        
-        titleStack.translatesAutoresizingMaskIntoConstraints = false
-        
-        return titleStack
-    }()
-    
-    private let deadlineStack: DeadlineStack = {
-        let deadlineStack = DeadlineStack()
-        
-        deadlineStack.translatesAutoresizingMaskIntoConstraints = false
-        
-        return deadlineStack
-    }()
+    private let checkbox = Checkbox()
+    private let titleStack = TitleStack()
+    private let deadlineStack = DeadlineStack()
     
     // MARK: Initializers
     
@@ -79,8 +56,7 @@ final class TodoItemCell: UICollectionViewCell {
         super.init(frame: frame)
         
         layer.cornerRadius = 16
-//        layer.shadowColor = UIColor.black.cgColor
-//        layer.shadowRadius = 50
+        // shadow?
         
         backgroundColor = .systemBackground
         
@@ -89,20 +65,25 @@ final class TodoItemCell: UICollectionViewCell {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        fatalError()
     }
 }
 
 // MARK: - Setup extension
 private extension TodoItemCell {
     
-    private func addSubviews() {
+    func addSubviews() {
         addSubview(checkbox)
         addSubview(titleStack)
         addSubview(deadlineStack)
     }
 
-    private func setupConstraints() {
+    func setupConstraints() {
+        
+        checkbox.translatesAutoresizingMaskIntoConstraints = false
+        titleStack.translatesAutoresizingMaskIntoConstraints = false
+        deadlineStack.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             // checkbox
             checkbox.centerYAnchor.constraint(equalTo: centerYAnchor),
@@ -119,7 +100,7 @@ private extension TodoItemCell {
         updateBottomConstraints()
     }
     
-    private func updateBottomConstraints() {
+    func updateBottomConstraints() {
         titleStackBottomConstraint.isActive = deadlineStack.isHidden
         
         if deadlineStack.isHidden {

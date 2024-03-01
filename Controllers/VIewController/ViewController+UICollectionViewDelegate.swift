@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-extension ViewController : UICollectionViewDelegate {
+extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = EditorViewController()
-        vc.todoItem = fileCache.items[indexPath.row]
+        let editorViewController = EditorViewController()
+        editorViewController.todoItem = fileCache.items[indexPath.row]
         
-        navigationController?.present(UINavigationController(rootViewController: vc), animated: true)
+        navigationController?.present(UINavigationController(rootViewController: editorViewController), animated: true)
     }
 }
