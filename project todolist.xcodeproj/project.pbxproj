@@ -13,10 +13,9 @@
 		CE1392372B03FB3B008671B5 /* TodoItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1392362B03FB3B008671B5 /* TodoItems.swift */; };
 		CE1392392B04068E008671B5 /* FileCacheErrors Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1392382B04068E008671B5 /* FileCacheErrors Enum.swift */; };
 		CE1475442B7F73B2007C335D /* TitleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1475432B7F73B2007C335D /* TitleStack.swift */; };
-		CE32533D2B054D2700FB5BB2 /* ViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE32533C2B054D2700FB5BB2 /* ViewController+UICollectionViewDataSource.swift */; };
-		CE32533F2B054E8C00FB5BB2 /* ViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE32533E2B054E8C00FB5BB2 /* ViewController+UICollectionViewDelegate.swift */; };
+		CE32533D2B054D2700FB5BB2 /* CollectionViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE32533C2B054D2700FB5BB2 /* CollectionViewController+UICollectionViewDataSource.swift */; };
+		CE32533F2B054E8C00FB5BB2 /* CollectionViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE32533E2B054E8C00FB5BB2 /* CollectionViewController+UICollectionViewDelegate.swift */; };
 		CE3253422B054F3C00FB5BB2 /* TodoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3253412B054F3C00FB5BB2 /* TodoItemCell.swift */; };
-		CE3253442B05528100FB5BB2 /* ViewController+UICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3253432B05528100FB5BB2 /* ViewController+UICollectionViewDelegateFlowLayout.swift */; };
 		CE5929A22B1111ED0076E6C4 /* PropertiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5929A12B1111ED0076E6C4 /* PropertiesView.swift */; };
 		CE5929A52B1116200076E6C4 /* ImportanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5929A42B1116200076E6C4 /* ImportanceView.swift */; };
 		CE5929A72B1116340076E6C4 /* DeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5929A62B1116340076E6C4 /* DeadlineView.swift */; };
@@ -26,7 +25,7 @@
 		CE6BDBFE2B0B5F8000AD774B /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BDBFD2B0B5F8000AD774B /* Date+Extensions.swift */; };
 		CE7966BA2B00CBBA00534BE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7966B92B00CBBA00534BE5 /* AppDelegate.swift */; };
 		CE7966BC2B00CBBA00534BE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7966BB2B00CBBA00534BE5 /* SceneDelegate.swift */; };
-		CE7966BE2B00CBBA00534BE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7966BD2B00CBBA00534BE5 /* ViewController.swift */; };
+		CE7966BE2B00CBBA00534BE5 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7966BD2B00CBBA00534BE5 /* CollectionViewController.swift */; };
 		CE7966C62B00CBBB00534BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7966C52B00CBBB00534BE5 /* Assets.xcassets */; };
 		CE7966C92B00CBBB00534BE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7966C72B00CBBB00534BE5 /* LaunchScreen.storyboard */; };
 		CE7966D32B00E65700534BE5 /* Importance Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7966D22B00E65700534BE5 /* Importance Enum.swift */; };
@@ -46,10 +45,9 @@
 		CE1392362B03FB3B008671B5 /* TodoItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItems.swift; sourceTree = "<group>"; };
 		CE1392382B04068E008671B5 /* FileCacheErrors Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileCacheErrors Enum.swift"; sourceTree = "<group>"; };
 		CE1475432B7F73B2007C335D /* TitleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleStack.swift; sourceTree = "<group>"; };
-		CE32533C2B054D2700FB5BB2 /* ViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
-		CE32533E2B054E8C00FB5BB2 /* ViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		CE32533C2B054D2700FB5BB2 /* CollectionViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		CE32533E2B054E8C00FB5BB2 /* CollectionViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		CE3253412B054F3C00FB5BB2 /* TodoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemCell.swift; sourceTree = "<group>"; };
-		CE3253432B05528100FB5BB2 /* ViewController+UICollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UICollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
 		CE5929A12B1111ED0076E6C4 /* PropertiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesView.swift; sourceTree = "<group>"; };
 		CE5929A42B1116200076E6C4 /* ImportanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportanceView.swift; sourceTree = "<group>"; };
 		CE5929A62B1116340076E6C4 /* DeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineView.swift; sourceTree = "<group>"; };
@@ -60,7 +58,7 @@
 		CE7966B62B00CBBA00534BE5 /* project todolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project todolist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7966B92B00CBBA00534BE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7966BB2B00CBBA00534BE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE7966BD2B00CBBA00534BE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE7966BD2B00CBBA00534BE5 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		CE7966C52B00CBBB00534BE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE7966C82B00CBBB00534BE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE7966CA2B00CBBB00534BE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -124,7 +122,7 @@
 		CE32533B2B054C8700FB5BB2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CEBC368A2B0E747B00C72ADE /* VIewController */,
+				CEBC368A2B0E747B00C72ADE /* CollectionViewController */,
 				CEA285A72B76A43D00313CF3 /* EditorViewController */,
 			);
 			path = Controllers;
@@ -146,6 +144,15 @@
 				CE7966C52B00CBBB00534BE5 /* Assets.xcassets */,
 			);
 			path = etc;
+			sourceTree = "<group>";
+		};
+		CE53F75F2B91D889005EFFD6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE32533E2B054E8C00FB5BB2 /* CollectionViewController+UICollectionViewDelegate.swift */,
+				CE32533C2B054D2700FB5BB2 /* CollectionViewController+UICollectionViewDataSource.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		CE5929AA2B1117330076E6C4 /* Subviews */ = {
@@ -212,15 +219,13 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
-		CEBC368A2B0E747B00C72ADE /* VIewController */ = {
+		CEBC368A2B0E747B00C72ADE /* CollectionViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CE7966BD2B00CBBA00534BE5 /* ViewController.swift */,
-				CE32533C2B054D2700FB5BB2 /* ViewController+UICollectionViewDataSource.swift */,
-				CE32533E2B054E8C00FB5BB2 /* ViewController+UICollectionViewDelegate.swift */,
-				CE3253432B05528100FB5BB2 /* ViewController+UICollectionViewDelegateFlowLayout.swift */,
+				CE7966BD2B00CBBA00534BE5 /* CollectionViewController.swift */,
+				CE53F75F2B91D889005EFFD6 /* Extensions */,
 			);
-			path = VIewController;
+			path = CollectionViewController;
 			sourceTree = "<group>";
 		};
 		CEBC36912B0FB7C300C72ADE /* Editor */ = {
@@ -366,9 +371,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE1392322B03EEE8008671B5 /* TodoItem.swift in Sources */,
-				CE7966BE2B00CBBA00534BE5 /* ViewController.swift in Sources */,
+				CE7966BE2B00CBBA00534BE5 /* CollectionViewController.swift in Sources */,
 				CEA285A92B76A47700313CF3 /* EditorViewController+UITextViewDelegate.swift in Sources */,
-				CE3253442B05528100FB5BB2 /* ViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				CEBC36932B0FB7E100C72ADE /* TextView.swift in Sources */,
 				CEBC368E2B0E773700C72ADE /* EditorView.swift in Sources */,
 				CE6BDBFE2B0B5F8000AD774B /* Date+Extensions.swift in Sources */,
@@ -377,7 +381,7 @@
 				CE3253422B054F3C00FB5BB2 /* TodoItemCell.swift in Sources */,
 				CE7966D32B00E65700534BE5 /* Importance Enum.swift in Sources */,
 				CE1392392B04068E008671B5 /* FileCacheErrors Enum.swift in Sources */,
-				CE32533D2B054D2700FB5BB2 /* ViewController+UICollectionViewDataSource.swift in Sources */,
+				CE32533D2B054D2700FB5BB2 /* CollectionViewController+UICollectionViewDataSource.swift in Sources */,
 				CE5929AC2B11E0B20076E6C4 /* DividerLine.swift in Sources */,
 				CE7966BA2B00CBBA00534BE5 /* AppDelegate.swift in Sources */,
 				CE1392342B03F5FB008671B5 /* FileCache.swift in Sources */,
@@ -385,7 +389,7 @@
 				CE7966BC2B00CBBA00534BE5 /* SceneDelegate.swift in Sources */,
 				CE63E3832B90F2B30090CED5 /* DeadlineStack.swift in Sources */,
 				CE5929A22B1111ED0076E6C4 /* PropertiesView.swift in Sources */,
-				CE32533F2B054E8C00FB5BB2 /* ViewController+UICollectionViewDelegate.swift in Sources */,
+				CE32533F2B054E8C00FB5BB2 /* CollectionViewController+UICollectionViewDelegate.swift in Sources */,
 				CEBC36902B0E790F00C72ADE /* EditorViewController.swift in Sources */,
 				CE1475442B7F73B2007C335D /* TitleStack.swift in Sources */,
 				CE1392372B03FB3B008671B5 /* TodoItems.swift in Sources */,

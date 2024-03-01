@@ -7,12 +7,12 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class CollectionViewController: UICollectionViewController {
     
+    // MARK: Properties
     let fileCache = FileCache()
     
-    private lazy var collectionView: UICollectionView = {
-        
+    private let layout: UICollectionViewCompositionalLayout = {
         let size = NSCollectionLayoutSize(
             widthDimension: NSCollectionLayoutDimension.fractionalWidth(1.0),
             heightDimension: .estimated(44)
@@ -25,41 +25,26 @@ final class ViewController: UIViewController {
         section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
         section.interGroupSpacing = 16
         
-        let layout = UICollectionViewCompositionalLayout(section: section)
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .secondarySystemBackground
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        return collectionView
+        return UICollectionViewCompositionalLayout(section: section)
     }()
+    
+    // MARK: Lifecycle
+    override func loadView() {
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .secondarySystemBackground
+        collectionView.register(TodoItemCell.self, forCellWithReuseIdentifier: TodoItemCell.reuseID)
+        title = "Todo's"
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Todo's"
         
 //        fileCache.addTestTodoItemsToJSON()
 //        fileCache.removeAllTodoItems()
-        
-        view.addSubview(collectionView)
-        
-        collectionView.register(TodoItemCell.self, forCellWithReuseIdentifier: TodoItemCell.reuseID)
-        setupConstraints()
         setupNavigation()
     }
-
-    private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            // collectionView
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
-    }
     
+    // MARK: Methods
     private func setupNavigation() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.modalPresentationStyle = .popover

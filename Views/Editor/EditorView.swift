@@ -62,8 +62,8 @@ final class EditorView: UIScrollView {
         setupConstraints()
     }
     
-    required init?(coder: NSCoder) {                            // TODO: Fix it
-        fatalError("init(coder:) has not been implemented")
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
     
     // MARK: - Functions

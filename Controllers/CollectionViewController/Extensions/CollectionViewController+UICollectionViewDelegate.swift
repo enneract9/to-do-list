@@ -8,8 +8,9 @@
 import Foundation
 import UIKit
 
-extension ViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+// MARK: - UICollectionViewDelegate methods
+extension CollectionViewController {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let editorViewController = EditorViewController()
         editorViewController.todoItem = fileCache.items[indexPath.row]
         
